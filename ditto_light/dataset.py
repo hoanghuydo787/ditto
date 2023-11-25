@@ -77,10 +77,10 @@ class DittoDataset(data.Dataset):
         # augment if da is set
         if self.da is not None:
             combined = self.augmenter.augment_sent(left + ' [SEP] ' + right, self.da)
-            print(combined.split(' [SEP] '))
-            print(type(combined.split(' [SEP] ')))
-            print(len(combined.split(' [SEP] ')))
-            left, right = combined.split(' [SEP] ')[0], combined.split(' [SEP] ')[1]
+            # print(combined.split(' [SEP] '))
+            # print(type(combined.split(' [SEP] ')))
+            # print(len(combined.split(' [SEP] ')))
+            left, right = combined.split(' [SEP] ')
             x_aug = self.tokenizer.encode(text=left,
                                       text_pair=right,
                                       max_length=self.max_len,
