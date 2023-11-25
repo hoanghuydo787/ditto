@@ -79,7 +79,8 @@ class DittoDataset(data.Dataset):
             combined = self.augmenter.augment_sent(left + ' [SEP] ' + right, self.da)
             print(combined.split(' [SEP] '))
             print(type(combined.split(' [SEP] ')))
-            # left, right = combined.split(' [SEP] ') 
+            print(len(combined.split(' [SEP] ')))
+            left, right = combined.split(' [SEP] ')[0], combined.split(' [SEP] ')[1]
             x_aug = self.tokenizer.encode(text=left,
                                       text_pair=right,
                                       max_length=self.max_len,
