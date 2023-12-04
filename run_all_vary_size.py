@@ -14,7 +14,7 @@ del""".split('\n')
 
 lm = "roberta"
 epochs = 20
-
+batch_size = 32
 import os
 import time
 
@@ -26,7 +26,7 @@ for dataset, op in zip(datasets, ops):
                     # DK
                     ds = dataset
                     start = time.time()
-                    cmd = """CUDA_VISIBLE_DEVICES=3 python train_ditto.py \
+                    cmd = """CUDA_VISIBLE_DEVICES=0 python train_ditto.py \
                   --task %s \
                   --logdir results_ditto/ \
                   --finetuning \

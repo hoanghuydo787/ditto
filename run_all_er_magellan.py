@@ -58,7 +58,7 @@ for dataset, op, lm in zip(datasets, ops, lms):
     for da in [True, False]:
         for dk in [True, False]:
             for run_id in range(5):
-                cmd = """CUDA_VISIBLE_DEVICES=3 python train_ditto.py \
+                cmd = """CUDA_VISIBLE_DEVICES=0 python train_ditto.py \
               --task %s \
               --logdir results_ditto/ \
               --finetuning \
