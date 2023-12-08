@@ -38,7 +38,7 @@ for d in datasets:
             dataset = '_'.join(['wdc', d, attr, size])
             for dk in [True, False]:
                 for da in [True, False]:
-                    for run_id in range(0):
+                    for run_id in range(1):
                         cmd = """CUDA_VISIBLE_DEVICES=%d python train_ditto.py \
                           --task %s \
                           --logdir results_wdc/ \
