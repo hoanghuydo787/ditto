@@ -55,9 +55,31 @@ for dataset, op, lm in zip(datasets, ops, lms):
     else:
         batch_size, epochs = 32, 15
 
+    # for da in [True, False]:
+    #     for dk in [True, False]:
+    #         for run_id in range(5):
+    #             cmd = """CUDA_VISIBLE_DEVICES=0 python train_ditto.py \
+    #           --task %s \
+    #           --logdir results_ditto/ \
+    #           --finetuning \
+    #           --batch_size %d \
+    #           --lr 3e-5 \
+    #           --fp16 \
+    #           --lm %s \
+    #           --n_epochs %d \
+    #           --run_id %d""" % (dataset, batch_size, lm, epochs, run_id)
+    #             if 'Company' in dataset:
+    #                 cmd += ' --summarize'
+    #             if da:
+    #                 cmd += ' --da %s' % op
+    #             if dk:
+    #                 cmd += ' --dk general'
+    #             print(cmd)
+    #             os.system(cmd)
+
     for da in [True, False]:
         for dk in [True, False]:
-            for run_id in range(5):
+            for run_id in range(1):
                 cmd = """CUDA_VISIBLE_DEVICES=0 python train_ditto.py \
               --task %s \
               --logdir results_ditto/ \
